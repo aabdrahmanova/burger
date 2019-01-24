@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Burger</title>
+        <link rel="stylesheet" href="./main.css">
+    </head>
+    <body>
+        <h1>Собери свой Бургер!</h1>
+            <div class="hamburger">
+            <div class="layer" id="layer0"></div>
+            <div id="layer1" class="layer"></div>
+            <div id="layer2" class="layer"></div>
+            <div id="layer3" class="layer"></div>
+            <div id="layer4" class="layer"></div>
+            <div id="layer5" class="layer"></div>
+            <div id="layer6" class="layer"></div> 
+            </div>
+            
+    <div class="select">
+        <select id="list">
+        <option value="" disabled selected>Выберите из списка</option>
+        <option value="tomato">Томат</option>
+        <option value="lettuce">Салат</option>
+        <option value="cheese">Сыр</option>
+        <option value="bacon">Бекон</option>
+        <option value="cutlet">Котлета</option>
+        </select>
+        <button class="btn">Добавить</button>
+    </div>  
+                
+                
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+        <script type="text/babel">
+            const products = {
+                burgerTop: (<div class="item" id="bun_top">
+                                <svg width="400" height="150">
+                            <path d="M380,140 C250,150 120,150 20,140 C0,130 5,70 50,40 C120,-10 280,-10 350,40 C395,70 400,130 380,140 L380,140 Z" id="Shape" fill="#F49B2F"></path>
+                        <ellipse id="Oval" fill="#F4D658" transform="translate(24.002450, 9.498350) rotate(-11.204304) translate(-24.002450, -9.498350) " cx="300" cy="100" rx="8" ry="3.5"></ellipse>
+                                            <ellipse id="Oval" fill="#F4D658" transform="translate(36.046100, 5.847250) rotate(-11.204304) translate(-36.046100, -5.847250) " cx="270" cy="70" rx="8" ry="3.5"></ellipse>
+                                            <ellipse id="Oval" fill="#F4D658" transform="translate(53.050595, 9.495435) rotate(-11.204304) translate(-53.050595, -9.495435) " cx="250" cy="90" rx="8" ry="3.5"></ellipse>
+                                            <ellipse id="Oval" fill="#F4D658" transform="translate(63.294125, 5.839575) rotate(-11.204304) translate(-63.294125, -5.839575) " cx="230" cy="50" rx="8" ry="3.5"></ellipse>
+                                            <ellipse id="Oval" fill="#F4D658" transform="translate(70.702830, 9.498910) rotate(-0.870916) translate(-70.702830, -9.498910) " cx="210" cy="40" rx="8" ry="3.5"></ellipse>
+                                            <ellipse id="Oval" fill="#F4D658" transform="translate(75.257400, 2.500250) rotate(11.011040) translate(-75.257400, -2.500250) " cx="230" cy="40" rx="8" ry="3.5"></ellipse>
+                                            <ellipse id="Oval" fill="#F4D658" transform="translate(54.792070, 2.499110) rotate(-11.204304) translate(-54.792070, -2.499110) " cx="180" cy="40" rx="8" ry="3.5"></ellipse>
+                        <ellipse id="Oval" fill="#F4D658" transform="translate(54.792070, 2.499110) rotate(-11.204304) translate(-54.792070, -2.499110) " cx="150" cy="70" rx="8" ry="3.5"></ellipse>
+                        <ellipse id="Oval" fill="#F4D658" transform="translate(54.792070, 2.499110) rotate(-11.204304) translate(-54.792070, -2.499110) " cx="130" cy="30" rx="8" ry="3.5"></ellipse>
+                        <ellipse id="Oval" fill="#F4D658" transform="translate(54.792070, 2.499110) rotate(-11.204304) translate(-54.792070, -2.499110) " cx="100" cy="60" rx="8" ry="3.5"></ellipse>
+                        <ellipse id="Oval" fill="#F4D658" transform="translate(54.792070, 2.499110) rotate(-11.204304) translate(-54.792070, -2.499110) " cx="80" cy="40" rx="8" ry="3.5"></ellipse>
+                        <ellipse id="Oval" fill="#F4D658" transform="translate(54.792070, 2.499110) rotate(-11.204304) translate(-54.792070, -2.499110) " cx="100" cy="80" rx="8" ry="3.5"></ellipse>
+                        <ellipse id="Oval" fill="#F4D658" transform="translate(54.792070, 2.499110) rotate(-11.204304) translate(-54.792070, -2.499110) " cx="50" cy="50" rx="8" ry="3.5"></ellipse>
+                        </svg>
+                            </div>),
+                tomato: (
+                <div class="item" id="tomato">
+                    <div class="x hidden"></div>
+                                <svg width="400" height="100">
+                            <ellipse id="Oval" fill="#E83F40" transform="translate(98.551830, 21.202770) rotate(10.078342) translate(-98.551830, -21.202770) " cx="120" cy="50" rx="100" ry="30"></ellipse>
+                                            <ellipse id="Oval" fill="#EA5659" transform="translate(98.551830, 21.202770) rotate(10.078342) translate(-98.551830, -21.202770) " cx="120" cy="46" rx="95" ry="25"></ellipse>
+                                            <path d="M160,70 L110,50 L80,60 L80,40 L40,30 L100,25 L190,60 L140,50 L160,70 Z"
+                                                id="Shape" fill="#E83F40"></path>
+                                    <ellipse id="Oval" fill="#EA5659" transform="translate(96, 18) rotate(10) translate(-96 -18) " cx="110" cy="35" rx="3" ry="2"></ellipse>
+                                        <ellipse id="Oval" fill="#EA5659" transform="translate(100, 19) rotate(10) translate(-101, -19) " cx="120" cy="40" rx="3" ry="2"></ellipse>
+                                            <ellipse id="Oval" fill="#EA5659"transform="translate(101, 22) rotate(9) translate(-101, -22) " cx="98" cy="37" rx="3" ry="2"></ellipse>
+                                            <ellipse id="Oval" fill="#EA5659" transform="translate(96, 21) rotate(10) translate(-96, -21) " cx="105" cy="43" rx="3" ry="2"></ellipse>
+                                <ellipse id="Oval" fill="#E83F40" transform="translate(44.099475, 20.454725) rotate(-0.876645) translate(-44.099475, -20.454725) " cx="280" cy="50" rx="100" ry="30"></ellipse>
+                        <ellipse id="Oval" fill="#EA5659" transform="translate(44.099475, 20.454725) rotate(-0.876645) translate(-44.099475, -20.454725) " cx="275" cy="43" rx="100" ry="30"></ellipse>
+                                    <path d="M320,60 L260,40 L230,60 L240,40 L190,40 L260,15 L365,30 L290,40 L320,60 Z"
+                                                id="Shape" fill="#E83F40"></path>
+                        <ellipse id="Oval" fill="#EA5659" transform="translate(96, 18) rotate(10) translate(-96 -18) " cx="270" cy="-5" rx="3" ry="2"></ellipse>
+                                        <ellipse id="Oval" fill="#EA5659" transform="translate(100, 19) rotate(10) translate(-101, -19) " cx="280" cy="0" rx="3" ry="2"></ellipse>
+                                            <ellipse id="Oval" fill="#EA5659"transform="translate(101, 22) rotate(9) translate(-101, -22) " cx="260" cy="10" rx="3" ry="2"></ellipse>
+                                            <ellipse id="Oval" fill="#EA5659" transform="translate(96, 21) rotate(10) translate(-96, -21) " cx="250" cy="0" rx="3" ry="2"></ellipse>
+                        </svg>
+                            </div>
+                ),
+                lettuce: (
+                <div class="item" id="lettuce">
+                <div class="x hidden"></div>
+                                <svg width="400" height="100">
+                            <path d="M390,70 L300,100 L250,80 L200,100 L100,120 L60,70 L30,40 L380,50 L390,70 Z" id="Shape" fill="#518735" ></path>
+                                            <path d="M388,68 L280,70 L240,90 L200,60 L150,70 L50,50 L10,70 L10,30 L380,20 L388,68 Z" id="Shape" fill="#56A234"></path>
+                                            <path d="M380,30 L300,40 L250,35 L200,30 L150,40 L100,35 L50,40 L10,35 L10,20 L20,10 L220,0 L320,10 L390,10  L380,30 Z" id="Shape" fill="#7CBB52"></path> 
+                        </svg>
+                            </div>
+                ),
+                cheese: (<div class="item" id="cheese">
+                    <div class="x hidden"></div>
+                                <svg width="400" height="100">
+                            
+                                            <path d="M390,20 C300,30 200,50 100,100 C80,100 10,20 20,10 C30,0 350,0 380,10 L390,20 Z" id="Shape" fill="#FDC64B"></path>
+                        </svg>
+                            </div>),
+                bacon: (<div class="item" id="bacon">
+                    <div class="x hidden"></div>
+                                <svg width="400px" height="120px">
+                                            <path d="M380,110 C370,130 250,110 200,90 C150,65 100,65 50,70 C20,70 10,40 5,30 C5,20 10,10 20,5 C30,0 40,0 50,0 C100,0 150,10 180,20 C230,30 300,30 350,50 C380,70 380,90, 380,110 L380,110 Z"
+                                                id="Shape" fill="#894647"></path>
+                                            <path d="M380,105 C370,125 250,105 200,85 C150,60 100,60 50,65 C20,65 10,35 5,25 C5,15 10,10 20,5 C30,0 40,0 50,0 C100,0 150,10 180,20 C230,30 300,30 350,50 C380,70 380,90, 380,110 L380,110 Z"
+                                                id="Shape" fill="#AA7272"></path>
+                                            <path d="M380,100 C370,120 250,100 200,80 C150,55 100,55 50,60 C20,60 10,30 5,20 C5,10 10,10 20,5 C30,0 40,0 50,0 C100,0 150,10 180,20 C230,30 300,30 350,50 C380,70 380,90, 380,110 L380,110 Z"
+                                                id="Shape" fill="#894647"></path>
+                                            <path d="M380,95 C370,115 250,95 200,75 C150,50 100,50 50,55 C20,55 10,25 5,15 C5,5 10,5 20,0 C30,0 40,0 50,0 C100,0 150,10 180,20 C230,30 300,30 350,50 C380,70 380,90 380,110 L380,110 Z"
+                                                id="Shape" fill="#AA7272"></path>
+                                            <path d="M380,50 C370,90 250,80 200,65 C150,50 100,70 60,90 C30,110 20,110 40,30 C50,20 60,20 70,15 C90,10 100,10 150,10 C180,15 200,15 250,15 C260,15 300,10 320,5 C340,5 380,30 380,50 L380,50 Z"
+                                                id="Shape" fill="#894647"></path>
+                                            <path d="M380,45 C370,85 250,75 200,60 C150,45 100,65 60,85 C30,105 20,105 40,25 C50,15 60,15 70,15 C90,10 100,10 150,10 C180,15 200,15 250,15 C260,15 300,10 320,5 C340,5 380,30 380,45 L380,45 Z"
+                                                id="Shape" fill="#AA7272"></path>
+                                            <path d="M380,40 C370,80 250,70 200,55 C150,40 100,60 60,80 C30,100 20,100 40,25 C50,15 60,15 70,15 C90,10 100,10 150,10 C180,15 200,15 250,15 C260,15 300,10 320,5 C340,5 380,30 380,45 L380,45 Z"
+                                                id="Shape" fill="#894647"></path>
+                                            <path d="M380,35 C370,75 250,65 200,50 C150,35 100,55 60,75 C30,95 20,95 40,25 C50,15 60,15 70,15 C90,10 100,10 150,10 C180,15 200,15 250,15 C260,15 300,10 320,5 C340,5 380,30 380,35 L380,35 Z"
+                                                id="Shape" fill="#AA7272"></path> 
+                                </svg>
+                            </div>),
+                cutlet: (<div class="item" id="cutlet">
+                    <div class="x hidden"></div>
+                                <svg width="400px" height="120px">
+                                            <path d="M380,100 C300,120 100,120 20,100 C0,90 5,60 15,20 L385,20 C395,60 400,90 380,100 L380,100 Z"
+                                                id="Shape" fill="#6D4B33"></path>
+                                            <ellipse id="Oval" fill="#774C32" cx="200" cy="20" rx="185" ry="20"></ellipse>
+                                </svg>
+                            </div>),
+                burgerBottom: (<div class="item" id="bottom">
+                                <svg width="400" height="120">
+                            <path d="M380,100 C300,120 100,120 20,100 C0,90 5,60 15,20 L385,20 C395,60 400,90 380,100 L380,100 Z"
+                                                id="Shape" fill="#F49B2F"></path>
+                                            <ellipse id="Oval" fill="#EFBA43" cx="200" cy="20" rx="185" ry="20"></ellipse>
+                        </svg>
+                            </div>)
+                }
+
+                let button = document.querySelector('button');
+                let list = document.getElementById('list');
+                let hamburger = document.querySelector('.hamburger');
+
+                ReactDOM.render(products.burgerTop,
+                                document.getElementById('layer0'));
+                ReactDOM.render(products.burgerBottom,
+                                document.getElementById('layer6'));
+
+
+                button.onclick = function() {
+                
+                switch(list.value) {
+                    case 'tomato':
+                    ReactDOM.render(products.tomato,
+                                document.getElementById('layer1'));
+                    break;
+                    case 'lettuce':
+                    ReactDOM.render(products.lettuce,
+                                document.getElementById('layer2'));
+                    break;
+                    case 'cheese':
+                    ReactDOM.render(products.cheese,
+                                document.getElementById('layer3'));
+                    break;
+                    case 'bacon':
+                    ReactDOM.render(products.bacon,
+                                document.getElementById('layer4'));
+                    break;
+                    case 'cutlet':
+                    ReactDOM.render(products.cutlet,
+                                document.getElementById('layer5'));
+                    break;
+                } 
+                }
+
+                hamburger.onclick = function() {
+                let items = document.querySelectorAll('.item')
+                for(let i = 0; i < items.length; i++) {
+                    items[i].classList.toggle('marg');
+                }
+
+                }
+
+        </script>
+    </body>
+</html>
